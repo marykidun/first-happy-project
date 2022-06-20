@@ -1,0 +1,65 @@
+body {
+  font-family: "Andada Pro", serif;
+  font-family: "Tiro Bangla", serif;
+}
+
+h1 {
+  color: #173e43;
+  margin: 15px 30px;
+  font-size: 48px;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 34px;
+  margin: 30px 200px 2px 150px;
+}
+h3 {
+  margin: 10px 200px 15px 170px;
+}
+#link-Celsius {
+  font-size: 22px;
+}
+#temperature {
+  font-size: 32px;
+  margin-left: 150px;
+  margin-top: 10px;
+  font-weight: bold;
+}
+#nowDate {
+  color: #0dcaf0;
+}
+
+.engine {
+  margin: 5px 20px 50px 250px;
+  padding: 12px 170px;
+  border: 2px solid #0dcaf0;
+}
+.btn {
+  padding: 12px 28px;
+  margin-left: 20px;
+}
+
+.card {
+  border: 1px solid black;
+  margin-right: 10px;
+}
+
+.card-text {
+  line-height: 2.5em;
+}
+::placeholder {
+  font-style: italic;
+}
+
+.card:hover {
+  border-color: #0dcaf0;
+  cursor: pointer;
+  transform: scale(1.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
+}
+
+.footer {
+  text-align: right;
+  margin: 35px 200px 20px;
+}
