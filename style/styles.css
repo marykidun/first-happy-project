@@ -11,19 +11,25 @@ h1 {
 }
 
 h2 {
-  font-size: 34px;
   margin: 30px 200px 2px 150px;
+  font-size: 34px;
 }
 h3 {
   margin: 10px 200px 15px 170px;
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
 }
 #link-Celsius {
   font-size: 22px;
 }
 #temperature {
-  font-size: 32px;
   margin-left: 150px;
   margin-top: 10px;
+  font-size: 32px;
   font-weight: bold;
 }
 #nowDate {
@@ -36,13 +42,13 @@ h3 {
   border: 2px solid #0dcaf0;
 }
 .btn {
-  padding: 12px 28px;
   margin-left: 20px;
+  padding: 12px 28px;
 }
 
 .card {
-  border: 1px solid black;
   margin-right: 10px;
+  border: 1px solid black;
 }
 
 .card-text {
