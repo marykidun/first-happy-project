@@ -23,13 +23,18 @@ a {
 a:hover {
   text-decoration: underline;
 }
-#link-Celsius {
-  font-size: 22px;
+#link-Celsius,
+#link-Farhenheit {
+  font-size: 18px;
+  position: relative;
+  top: -10px;
+  cursor: default;
+  text-decoration: none;
 }
 #temperature {
   margin-left: 150px;
   margin-top: 10px;
-  font-size: 32px;
+  font-size: 38px;
   font-weight: bold;
 }
 #nowDate {
