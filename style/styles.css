@@ -20,20 +20,32 @@ h3 {
 a {
   text-decoration: none;
 }
-a:hover {
-  text-decoration: underline;
+
+#link-Celsius,
+#link-Farhenheit {
+  font-size: 18px;
+  position: relative;
+  top: -10px;
+  cursor: default;
+  text-decoration: none;
 }
-#link-Celsius {
-  font-size: 22px;
-}
+
 #temperature {
   margin-left: 150px;
   margin-top: 10px;
-  font-size: 32px;
+  font-size: 38px;
   font-weight: bold;
+}
+#icon {
+  width: 80px;
+  margin-left: 40px;
+  margin-top: 10px;
 }
 #nowDate {
   color: #0dcaf0;
+}
+.active {
+  color: #173e43;
 }
 
 .engine {
@@ -49,6 +61,10 @@ a:hover {
 .card {
   margin-right: 10px;
   border: 1px solid black;
+}
+
+.description:first-letter {
+  text-transform: capitalize;
 }
 
 .card-text {
