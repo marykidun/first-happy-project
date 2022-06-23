@@ -24,6 +24,7 @@ h3.innerHTML = `${day} ${hours}:${minutes}`;
 
 function showCurrentWeather(response) {
   let temperature = Math.round(response.data.main.temp);
+  celsiusTemperature = response.data.main.temp;
   let h2 = document.querySelector("#temperature");
   h2.innerHTML = `${temperature}`;
   let newLocation = document.querySelector(".newCity");
@@ -48,6 +49,7 @@ currentLocationButton.addEventListener("click", showCurrentCity);
 
 function showWeather(response) {
   let temperature = Math.round(response.data.main.temp);
+  celsiusTemperature = Math.round(response.data.main.temp);
   let h2 = document.querySelector("#temperature");
   h2.innerHTML = `${temperature}`;
   let newLocation = document.querySelector(".newCity");
@@ -66,8 +68,36 @@ function showCity(event) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchEngine.value}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showWeather);
 }
-let form = document.querySelector(".searchForm");
-form.addEventListener("submit", showCity);
 
 let newTemp = document.querySelector("#temperature");
 newTemp.addEventListener("click", showWeather);
+
+function clickFahrenheitTemperature(event) {
+  event.preventDefault();
+  celciusLink.classList.remove("active");
+  farhenheitLink.classList.add("active");
+  let showFahrenheit = Math.round((celsiusTemperature * 9) / 5 + 32);
+  let temperatureItem = document.querySelector("#temperature");
+  temperatureItem.innerHTML = showFahrenheit;
+}
+
+function clickTemperature(event) {
+  event.preventDefault();
+  celciusLink.classList.add("active");
+  farhenheitLink.classList.remove("active");
+
+  let temperatureItem = document.querySelector("#temperature");
+  temperatureItem.innerHTML = Math.round(celsiusTemperature);
+}
+let celsiusTemperature = null;
+
+let form = document.querySelector(".searchForm");
+form.addEventListener("submit", showCity);
+
+let farhenheitLink = document.querySelector("#link-Farhenheit");
+farhenheitLink.addEventListener("click", clickFahrenheitTemperature);
+
+let celciusLink = document.querySelector("#link-Celsius");
+celciusLink.addEventListener("click", clickTemperature);
+
+showCity("Madrid");
