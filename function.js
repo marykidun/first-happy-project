@@ -22,6 +22,16 @@ if (minutes < 10) {
 
 h3.innerHTML = `${day} ${hours}:${minutes}`;
 
+if (hours > 17 && hours < 20) {
+  document.write('<body style="background-color: #a3c1da">');
+} else if (hours > 21 || hours < 5) {
+  document.write('<body style="background-color: #616D7E;">');
+} else if (hours > 6 && hours < 9) {
+  document.write('<body style="background-color: skyblue">');
+} else {
+  document.write('<body style="background-color: #c8dae9">');
+}
+
 function showCurrentWeather(response) {
   let temperature = Math.round(response.data.main.temp);
   celsiusTemperature = response.data.main.temp;
