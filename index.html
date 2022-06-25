@@ -24,9 +24,10 @@
   </head>
   <body>
     <h1>WeatherLab</h1>
-     <div class="clearfix weather-Temperature">
+     <div class="clearfix weather-temperature">
     <h2 span class="newCity">
       Barcelona</span></h2>
+      <h3 id="nowDate"></h3>
       <span id="temperature">23</span>
       <a href="#"><span
         id="link-Celsius" class="active">C° |</span
@@ -35,11 +36,14 @@
       ></a>
     </h2>
    
-      <div>
-    <img src = "" alt="current weather" id="icon" class="float-left" />
+      <div class="clearfix weather-temperature">
+    <img src ="" id="icon" class="float-left" />
     <div class="float-left">
     <h3 class="description">Sunny</h3>
-    <h3 id="nowDate"></h3>
+    <h3>Humidity: <span class="humidity"></span>%</h3>
+    <h3>Wind: <span class="wind"></span> m/s</h3>
+  
+    
     </div>
     </div>
     </div>
@@ -147,7 +151,7 @@
     </div>
 
     <footer class="footer">
-      <p><a href="https://github.com/marykidun/first-happy-project.git" target="_blank">Open-source code</a> ,coded by Maryna Kidun</p>
+      <p><a href="https://github.com/marykidun/first-happy-project.git" target="_blank">Open-source code</a>, coded by Maryna Kidun</p>
     </footer>
     <script src="function.js"></script>
   </body>
