@@ -11,7 +11,7 @@ h1 {
 }
 
 h2 {
-  margin: 30px 200px 2px 150px;
+  margin: 20px 100px 2px 150px;
   font-size: 34px;
 }
 h3 {
@@ -20,6 +20,12 @@ h3 {
 }
 a {
   text-decoration: none;
+}
+.icon {
+  position: absolute;
+  top: 75px;
+  left: 320px;
+  width: 120px;
 }
 
 #link-Celsius,
@@ -37,11 +43,7 @@ a {
   font-size: 30px;
   font-weight: bold;
 }
-#icon {
-  width: 80px;
-  margin-left: 300px;
-  margin-top: 15px;
-}
+
 #nowDate {
   color: #0dcaf0;
   margin-left: 150px;
