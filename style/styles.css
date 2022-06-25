@@ -16,6 +16,7 @@ h2 {
 }
 h3 {
   margin: 10px 200px 15px 170px;
+  font-size: 20px;
 }
 a {
   text-decoration: none;
@@ -33,16 +34,17 @@ a {
 #temperature {
   margin-left: 150px;
   margin-top: 10px;
-  font-size: 38px;
+  font-size: 30px;
   font-weight: bold;
 }
 #icon {
   width: 80px;
-  margin-left: 40px;
-  margin-top: 10px;
+  margin-left: 300px;
+  margin-top: 15px;
 }
 #nowDate {
   color: #0dcaf0;
+  margin-left: 150px;
 }
 .active {
   color: #173e43;
