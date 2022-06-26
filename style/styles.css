@@ -21,6 +21,11 @@ h3 {
 a {
   text-decoration: none;
 }
+
+img {
+  display: block;
+  margin: 0 auto;
+}
 .icon {
   position: absolute;
   top: 75px;
@@ -73,6 +78,12 @@ a {
 
 .card-text {
   line-height: 2.5em;
+  text-align: center;
+}
+
+.card-title {
+  line-height: 2em;
+  text-align: center;
 }
 ::placeholder {
   font-style: italic;
