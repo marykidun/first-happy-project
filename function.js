@@ -32,6 +32,40 @@ if (hours > 17 && hours < 20) {
   document.write('<body style="background-color: #c8dae9">');
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#weather-forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+  
+        <div class="col-sm-2">
+          <div class="card-group">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">${day}<br /><span class max-min>23°   15</span>°<br />☀ Sunny</h5>
+                <img
+                  src="http://openweathermap.org/img/wn/50d@2x.png"
+                  alt=""
+                  width="48"
+                />
+                <p class="card-text">
+                  Humididty: <span class="card-humidity"> 80%</span><br />Wind: <span class="card-wind">5</span>
+                  
+                  m/s<br />
+                </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function showCurrentWeather(response) {
   let temperature = Math.round(response.data.main.temp);
   celsiusTemperature = response.data.main.temp;
@@ -54,6 +88,7 @@ function showCurrentWeather(response) {
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
+displayForecast();
 
 function currentLocation(position) {
   let latitude = position.coords.latitude;
