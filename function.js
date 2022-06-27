@@ -32,38 +32,74 @@ if (hours > 17 && hours < 20) {
   document.write('<body style="background-color: #c8dae9">');
 }
 
-function displayForecast() {
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  return days[day];
+}
+
+function displayForecast(response) {
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#weather-forecast");
   let forecastHTML = `<div class="row">`;
-  let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
   
         <div class="col-sm-2">
           <div class="card-group">
             <div class="card">
               <div class="card-body">
-                <h5 class="card-title">${day}<br /><span class max-min>23°   15</span>°<br />☀ Sunny</h5>
+                <h5 class="card-title">${formatDay(
+                  forecastDay.dt
+                )}<br /><span class="max-temp">${Math.round(
+          forecastDay.temp.max
+        )}</span>°   <span class="min-temp">${Math.round(
+          forecastDay.temp.min
+        )}</span>°<br /><span class="card-description">${
+          forecastDay.weather[0].description
+        }</span></h5>
                 <img
-                  src="http://openweathermap.org/img/wn/50d@2x.png"
+                  src="https://openweathermap.org/img/wn/${
+                    forecastDay.weather[0].icon
+                  }@2x.png"
                   alt=""
                   width="48"
                 />
                 <p class="card-text">
-                  Humididty: <span class="card-humidity"> 80%</span><br />Wind: <span class="card-wind">5</span>
+                  Humididty: <span class="card-humidity">${
+                    forecastDay.humidity
+                  }%
                   
-                  m/s<br />
+                 
                 </p>
                 </div>
               </div>
             </div>
           </div>
         `;
+    }
   });
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  let apiKey = "ebef9ca4a8de66ed586fac628fade056";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function showCurrentWeather(response) {
@@ -87,8 +123,8 @@ function showCurrentWeather(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+  getForecast(response.data.coord);
 }
-displayForecast();
 
 function currentLocation(position) {
   let latitude = position.coords.latitude;
@@ -97,9 +133,11 @@ function currentLocation(position) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showCurrentWeather);
 }
+
 function showCurrentCity() {
   navigator.geolocation.getCurrentPosition(currentLocation);
 }
+
 let currentLocationButton = document.querySelector("#showCurrentLocation");
 currentLocationButton.addEventListener("click", showCurrentCity);
 
@@ -123,7 +161,9 @@ function showWeather(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+  getForecast(response.data.coord);
 }
+
 function showCity(event) {
   event.preventDefault();
   let searchEngine = document.querySelector(".engine");
@@ -167,3 +207,5 @@ let celciusLink = document.querySelector("#link-Celsius");
 celciusLink.addEventListener("click", clickTemperature);
 
 showCity("Madrid");
+
+displayForecast(response);
