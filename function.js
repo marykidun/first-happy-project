@@ -81,8 +81,9 @@ function displayForecast(response) {
                 <p class="card-text">
                   Humididty: <span class="card-humidity">${
                     forecastDay.humidity
-                  }%
-                  
+                  }%<br/>
+                  Wind: 
+                  <span class="wind-speed">${forecastDay.wind_speed}</span>m/s
                  
                 </p>
                 </div>
@@ -164,6 +165,12 @@ function showWeather(response) {
   getForecast(response.data.coord);
 }
 
+function defaultCity(city) {
+  let apiKey = "ebef9ca4a8de66ed586fac628fade056";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showWeather);
+}
+
 function showCity(event) {
   event.preventDefault();
   let searchEngine = document.querySelector(".engine");
@@ -206,6 +213,6 @@ farhenheitLink.addEventListener("click", clickFahrenheitTemperature);
 let celciusLink = document.querySelector("#link-Celsius");
 celciusLink.addEventListener("click", clickTemperature);
 
-showCity("Madrid");
+defaultCity("Madrid");
 
 displayForecast(response);
