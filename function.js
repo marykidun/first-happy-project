@@ -83,7 +83,7 @@ function displayForecast(response) {
                     forecastDay.humidity
                   }%<br/>
                   Wind: 
-                  <span class="wind-speed">${forecastDay.wind_speed}</span>m/s
+                  <span class="wind-speed">${forecastDay.wind_speed}</span> m/s
                  
                 </p>
                 </div>
