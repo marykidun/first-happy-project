@@ -76,13 +76,17 @@ img {
   text-transform: capitalize;
 }
 
+.card-description:first-letter {
+  text-transform: capitalize;
+}
+
 .card-text {
-  line-height: 2.5em;
+  line-height: 2em;
   text-align: center;
 }
 
 .card-title {
-  line-height: 2em;
+  line-height: 1.5em;
   text-align: center;
 }
 ::placeholder {
